@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private Enemy _enemyPrefab;
+    [FormerlySerializedAs("_enemyPrefab")] [SerializeField] private Enemy _enemy;
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private int _secondsBetweenSpawns;
 
@@ -22,6 +22,6 @@ public class Spawner : MonoBehaviour
         _elapsedTime = 0;
 
         int spawnPointNumber = Random.Range(0, _spawnPoints.Length);
-        Instantiate(_enemyPrefab, _spawnPoints[spawnPointNumber].position, Quaternion.identity);
+        Instantiate(_enemy, _spawnPoints[spawnPointNumber].position, Quaternion.identity);
     }
 }
